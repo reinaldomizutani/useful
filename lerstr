@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+// código básico para alocar dinamicamente e retornar string em uma variável
+char *lerstr(){
+    int a=0;
+    char aux, *vetor=NULL;
+    scanf(" %c", &aux);
+    while(aux!='\n'){
+        vetor = (char*)realloc(vetor, (a+1)*sizeof(char));
+        vetor[a]=aux;
+        a++;
+        aux=getchar();
+    }
+    vetor[a]='\0';
+    return vetor;
+}
+
+
+int main(){
+    char *teste=NULL;
+
+    teste = lerstr();
+    printf("%s", teste);
+    return 0;
+}
